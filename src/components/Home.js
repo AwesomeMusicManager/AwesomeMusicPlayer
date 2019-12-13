@@ -51,14 +51,29 @@ export class Home extends Component {
           </form>
           {this.state.music ? (
             <div>
-              <YouTube
-                videoId={
-                  this.state.music.YouTube ? this.state.music.id : "Oqpqr1vYuGs"
-                }
-                opts={opts}
-                onReady={this._onReady}
-              />
-              <p>{this.state.music.lyric}</p>
+              <div style={{ float: "left", width: "35%" }}>
+                <YouTube
+                  videoId={
+                    this.state.music.youtube
+                      ? this.state.music.youtube.id
+                      : "Oqpqr1vYuGs"
+                  }
+                  opts={opts}
+                  onReady={this._onReady}
+                />
+              </div>
+              <div style={{ float: "right", width: "65%" }}>
+                <span
+                  style={{
+                    whiteSpace: "pre-line",
+                    float: "right",
+                    width: "50%"
+                  }}
+                >
+                  {this.state.music.lyric}
+                </span>
+              </div>
+              <br style={{ clear: "both" }} />
             </div>
           ) : (
             "Pesquise a música acima"
